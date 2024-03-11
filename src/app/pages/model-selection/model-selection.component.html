@@ -1,0 +1,27 @@
+<div class="model-selection-container">
+  <p class="header">Step 1: Choose your Model and color</p>
+
+  <div class="selection-wrapper">
+    <div class="model-wrapper">
+
+      <p>Model:</p>
+      <select id="modelSelect" [(ngModel)]="selectedCarCode" (change)="carModelChange()">
+        <option *ngFor="let car of cars$ | async" [ngValue]="car.code">
+          {{ car.description }}
+        </option>
+      </select>
+    </div>
+
+    <div class="color-wrapper">
+      <p>Color:</p>
+      <select id="colorSelect" [(ngModel)]="selectedCarColorCode" (change)="carColorChange()">
+          <option *ngFor="let color of colors$ | async" [ngValue]="color.code">
+            {{ color.description }}
+          </option>
+      </select>
+    </div>
+  </div>
+
+  <img *ngIf="selectedCarCode && selectedCarColorCode" src="https://interstate21.com/tesla-app/images/{{selectedCarCode}}/{{selectedCarColorCode}}.jpg" alt="Car image of a tesla">
+
+</div>

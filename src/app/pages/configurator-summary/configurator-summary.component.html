@@ -1,0 +1,42 @@
+<div class="summary-container">
+  <p class="header">Step 3: Summary</p>
+
+  <p *ngIf="selectedCar$ | async; let car">
+    Your Tesla {{ car.description }}
+  </p>
+
+  <div class="selection-summary-container">
+    <div class="config-container" *ngIf="selectedCarConfig">
+      <div class="summary-entry">
+        <p><b>{{ selectedCarConfig.description }}</b></p>
+        <p>{{ selectedCarConfig.price | currency }}</p>
+      </div>
+      <p>Range: {{ selectedCarConfig.range }} - Max speed: {{ selectedCarConfig.speed }}</p>
+    </div>
+
+    <br>
+
+    <div class="summary-entry" *ngIf="selectedColor$ | async; let color">
+      <p><b>{{ color.description }}</b></p>
+      <p>{{ color.price | currency }}</p>
+    </div>
+
+    <div class="summary-entry" *ngIf="selectedTowHitch$ | async;">
+      <p><b>Tow Hitch Package</b></p>
+      <p>{{ PACKAGE_FIXED_COST | currency }}</p>
+    </div>
+
+    <div class="summary-entry" *ngIf="selectedYoke$ | async;">
+      <p><b>Yoke Steering Wheel</b></p>
+      <p>{{ PACKAGE_FIXED_COST | currency }}</p>
+    </div>
+
+    <div class="summary-entry total-summary">
+      <p><b>TOTAL COST</b></p>
+      <p>{{totalCost$ | async | currency}}</p>
+    </div>
+  </div>
+
+
+  <img src="https://interstate21.com/tesla-app/images/{{selectedCarCode}}/{{selectedColorCode}}.jpg" alt="Car image of a tesla">
+</div>

@@ -1,0 +1,15 @@
+<div class="step-container">
+  <div id="step1" class="step" routerLink="/step_one">
+    <p>Step 1</p>
+  </div>
+  <div id="step2" class="step" routerLink="/step_two"
+       [ngClass]="{'disabled': !(isStepTwoAllowed$ | async)}"
+       >
+    <p>Step 2</p>
+  </div>
+  <div id="step3" class="step" routerLink="/step_three"
+       [ngClass]="{'disabled': !(isStepThreeAllowed$ | async)}"
+  >
+    <p>Step 3</p>
+  </div>
+</div>

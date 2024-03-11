@@ -1,0 +1,17 @@
+.model-selection-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .selection-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    .model-wrapper, .color-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
