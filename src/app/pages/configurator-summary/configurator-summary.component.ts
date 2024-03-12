@@ -21,7 +21,7 @@ import {AsyncPipe, CurrencyPipe, JsonPipe, NgIf} from "@angular/common";
 })
 export class ConfiguratorSummaryComponent implements OnInit {
 
-  PACKAGE_FIXED_COST = 1000;
+  PACKAGE_FIXED_COST: number = 1000;
 
   selectedCar$!: Observable<Car>;
   selectedColor$!: Observable<CarColor>;
@@ -48,16 +48,16 @@ export class ConfiguratorSummaryComponent implements OnInit {
     this.selectedTowHitch$ = this.userInputSummaryService.towSelected$;
     this.selectedYoke$ = this.userInputSummaryService.yokeSelected$;
 
-    this.initializeSelectedCarObservable();
-    this.initializeSelectedColorObservable();
-
     this.selectedCarConfig = this.carService.carConfig!.configs.filter((carConfigDetails: CarConfigDetails) =>
       carConfigDetails.id === this.userInputSummaryService.selectedCarConfigId$.value)[0];
+
+    this.initializeSelectedCarObservable();
+    this.initializeSelectedColorObservable();
 
     this.initializeTotalCostObservable();
   }
 
-  private initializeSelectedCarObservable() {
+  private initializeSelectedCarObservable(): void {
     this.selectedCar$ = this.carService.cars$.pipe(
       map((cars: Car[]) =>
         cars.filter((car: Car) => car.code === this.userInputSummaryService.selectedCarCode$.value)[0],

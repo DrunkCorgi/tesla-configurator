@@ -36,8 +36,8 @@ export class ModelSelectionComponent implements OnInit {
     this.cars$ = this.carModelService.getCars$();
 
     this.colors$ = this.userInputSummaryService.selectedCarCode$.pipe(
-      switchMap((carCode) => this.cars$.pipe(
-        map((cars) => cars.find((car) => car.code === carCode)?.colors ?? []),
+      switchMap((carCode: string) => this.cars$.pipe(
+        map((cars: Car[]) => cars.find((car: Car) => car.code === carCode)?.colors ?? []),
       )),
     );
 

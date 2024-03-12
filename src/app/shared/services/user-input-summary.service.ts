@@ -6,14 +6,14 @@ import {BehaviorSubject, combineLatestWith, map, Observable, Subscription} from 
 })
 export class UserInputSummaryService {
 
-  selectedCarCode$ = new BehaviorSubject<string>("");
-  selectedCarColorCode$ = new BehaviorSubject<string>("");
+  selectedCarCode$: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  selectedCarColorCode$: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
-  selectedCarConfigId$ = new BehaviorSubject<string>("");
-  towSelected$ = new BehaviorSubject<boolean>(false);
-  yokeSelected$ = new BehaviorSubject<boolean>(false);
+  selectedCarConfigId$: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  towSelected$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  yokeSelected$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  subscription = new Subscription();
+  subscription: Subscription = new Subscription();
 
   constructor() {
     // Only subscribes once while app is running and is getting deleted when closing app.

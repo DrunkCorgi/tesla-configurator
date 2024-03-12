@@ -25,8 +25,8 @@ export class ModelConfigurationComponent implements OnInit {
 
   carConfig$!: Observable<CarConfig>;
   selectedConfigId: string = '';
-  selectedTow = false;
-  selectedYoke = false;
+  selectedTow: boolean = false;
+  selectedYoke: boolean = false;
   selectedConfigDetails?: CarConfigDetails;
 
   constructor(private readonly userInputSummaryService: UserInputSummaryService,
@@ -43,8 +43,8 @@ export class ModelConfigurationComponent implements OnInit {
       switchMap((carCode: string) => {
         return this.carService.getCarConfig$(carCode)
           .pipe(
-            tap((carConfig) => {
-              this.selectedConfigDetails = carConfig.configs.find((carConfigDetails) =>
+            tap((carConfig: CarConfig) => {
+              this.selectedConfigDetails = carConfig.configs.find((carConfigDetails: CarConfigDetails) =>
                 carConfigDetails.id === this.selectedConfigId);
             })
           );
