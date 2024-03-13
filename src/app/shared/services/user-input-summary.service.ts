@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, combineLatestWith, map, Observable, Subscription} from "rxjs";
+import {BehaviorSubject, combineLatestWith, map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,9 @@ export class UserInputSummaryService {
   towSelected$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   yokeSelected$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  subscription: Subscription = new Subscription();
-
   constructor() {
     // Only subscribes once while app is running and is getting deleted when closing app.
-    this.subscription.add(this.selectedCarCode$.subscribe(() => this.clearModelSpecificSelections()))
+    this.selectedCarCode$.subscribe(() => this.clearModelSpecificSelections());
   }
 
   public isStepTwoAllowed$(): Observable<boolean> {

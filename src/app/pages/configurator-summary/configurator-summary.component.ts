@@ -4,7 +4,7 @@ import {CarService} from "../../shared/services/car.service";
 import {BehaviorSubject, map, Observable, zip} from "rxjs";
 import {Car} from "../../shared/types/car";
 import {CarColor} from "../../shared/types/car-color";
-import {CarConfig, CarConfigDetails} from "../../shared/types/car-config";
+import {CarConfigDetails} from "../../shared/types/car-config";
 import {AsyncPipe, CurrencyPipe, JsonPipe, NgIf} from "@angular/common";
 
 @Component({
